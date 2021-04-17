@@ -22,7 +22,7 @@ node {
 
     stage('Push image') {
         
-        docker.withRegistry('https://registry.hub.docker.com', 'git') {
+        docker.withRegistry('https://public.ecr.aws/s1u4y5t4/myrepo', 'git') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
