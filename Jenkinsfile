@@ -28,6 +28,7 @@ node {
             def myImage = docker.build('test')
             myImage.push('latest')
           }
+          }
         }
     }
 }
