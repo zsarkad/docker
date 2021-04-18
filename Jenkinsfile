@@ -27,6 +27,7 @@ node {
            'ecr:us-east-1:my.aws.cred') {
             def myImage = docker.build('test')
             myImage.push('latest')
+          }
         }
     }
 }
