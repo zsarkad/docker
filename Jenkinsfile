@@ -21,10 +21,12 @@ node {
     }
 
     stage('Push image') {
-        
-        docker.withRegistry('https://public.ecr.aws/s1u4y5t4/', 'git') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+      steps {
+        script {
+          docker.withRegistry('https://625940664891.dkr.ecr.us-east-1.amazonaws.com/',
+           'ecr:us-east-1:my.aws.cred') {
+            def myImage = docker.build('test')
+            myImage.push('latest')
         }
     }
 }
