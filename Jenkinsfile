@@ -21,14 +21,11 @@ node {
     }
 
     stage('Push image') {
-      steps {
-        script {
-          docker.withRegistry('https://625940664891.dkr.ecr.us-east-1.amazonaws.com/',
-           'ecr:us-east-1:my.aws.cred') {
-            def myImage = docker.build('test')
-            myImage.push('latest')
-          }
-          }
+         steps {
+           withDockerRegistry([url: "https://625940664891.dkr.ecr.us-east-1.amazonaws.com/test",credentialsId: "ecr:us-east-1:my.aws.cred"]) {
+           bat 'docker push brandonjones085/test:latest'
+           }
+        }
         }
     }
 }
