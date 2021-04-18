@@ -26,6 +26,5 @@ node {
            bat 'docker push brandonjones085/test:latest'
            }
         }
-        }
     }
 }
